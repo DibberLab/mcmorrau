@@ -17,6 +17,7 @@ services:
 
   redis:
     image: redis
+    restart: unless-stopped
     env_file: ./docker.env
     volumes:
       - ./redis.conf:/redis.conf
@@ -29,6 +30,7 @@ services:
 
   postgres:
     image: postgres:16
+    restart: unless-stopped
     env_file: ./docker.env
     volumes:
       - database-data:/var/lib/postgresql/data
